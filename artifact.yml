@@ -1,0 +1,37 @@
+# Defines Pipeline - - - - - -
+# Some change 2
+
+# Project Info
+# --------------
+solution: ArtifactTest.sln
+project_type: cs
+description: PLACEHOLDER DESCRIPTION test
+memoryGB: 4
+
+# Compile Configuration
+# ----------------------
+compile:
+  platform: Any CPU
+  configuration: Release
+  targets:
+    - clean
+    - build
+  parallel: true
+  msbuildversion: 14.0
+  verbosity: normal
+
+# Publish Configuration
+# ----------------------
+publish:
+  publish_as: nugetpackage
+  publish_local:
+  deploy: True
+  nuget_package:
+    id: ArtifactTest
+    version: 1.2.2
+    author:
+    lib:
+      net452:
+        - ArtifactTest.csproj;ArtifactTest.dll
+    content:
+    dependencies:
